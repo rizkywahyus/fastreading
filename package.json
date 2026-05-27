@@ -1,0 +1,17 @@
+{
+  "name": "fastreading",
+  "version": "1.0.0",
+  "description": "FastReading — Read fast. (fastreading.pro)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "express": "^4.21.0",
+    "jsdom": "^24.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}

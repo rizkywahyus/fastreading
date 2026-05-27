@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Speed reading online with our free RSVP reader. Read faster online — one word at a time. Paste a link or text and start now.">
+  <meta name="keywords" content="speed reading online, RSVP reader, read faster online">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FastReading — RSVP Speed Reader">
+  <meta property="og:description" content="Read faster online with RSVP. One word at a time. Free, no sign-up.">
+  <title>FastReading — Speed Reading Online | RSVP Reader</title>
+  <link rel="canonical" href="/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Literata:opsz,wght@7..72,400;7..72,600&family=Source+Sans+3:ital,wght@0,400;0,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-theme="light">
+  <div id="app">
+    <header class="header">
+      <div class="header-home" id="header-home">
+        <a href="/" class="logo" id="logo-home-link">FastReading</a>
+        <span class="logo-badge">beta</span>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#how-it-works" class="nav-link">how it works</a>
+        <a href="#about" class="nav-link">about</a>
+      </nav>
+      <div class="header-reader" id="header-reader" hidden>
+        <h2 class="reader-title" id="reader-title">Article title</h2>
+        <p class="reader-source" id="reader-source">Source</p>
+      </div>
+    </header>
+
+    <main class="main home-layout" id="main-content">
+      <section class="hero" id="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title" class="hero-title">Read faster.<br>Think clearer.</h1>
+          <p class="hero-desc">
+            RSVP flashes words one at a time at a fixed point — eliminating eye movement and tripling reading speed.
+            Paste any article or text and go.
+          </p>
+        </div>
+
+        <div class="hero-input-block">
+          <div class="input-tabs" role="tablist" aria-label="Input method">
+            <button type="button" class="input-tab input-tab--active" id="tab-url" role="tab" aria-selected="true"
+              aria-controls="panel-url">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+              Article URL
+            </button>
+            <button type="button" class="input-tab" id="tab-text" role="tab" aria-selected="false"
+              aria-controls="panel-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+              Paste text
+            </button>
+          </div>
+
+          <form id="url-form" class="hero-form" novalidate>
+            <div class="input-panel" id="panel-url" role="tabpanel" aria-labelledby="tab-url">
+              <label for="url-input" class="sr-only">Insert article URL</label>
+              <div class="hero-input-row">
+                <input type="url" id="url-input" class="url-input" placeholder="https://..." autocomplete="url" />
+                <button type="button" id="browse-btn" class="btn btn-browse" aria-label="Browse file">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                  browse
+                </button>
+              </div>
+            </div>
+
+            <div class="input-panel input-panel--hidden" id="panel-text" role="tabpanel" aria-labelledby="tab-text">
+              <label for="text-input" class="sr-only">Paste text</label>
+              <textarea id="text-input" class="text-input" placeholder="Paste your article, notes, or any text here…"
+                rows="5"></textarea>
+            </div>
+
+            <button type="submit" id="paste-submit-btn" class="btn btn-primary btn-cta">
+              Start reading
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+          </form>
+
+          <div id="input-error" class="error" role="alert" hidden></div>
+          <div id="input-loading" class="loading" hidden>
+            <span class="spinner"></span>
+            <span>Extracting article…</span>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">3×</span>
+            <span class="stat-label">faster than average</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">Free</span>
+            <span class="stat-label">no sign-up needed</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">RSVP</span>
+            <span class="stat-label">proven technique</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="reader-section" class="text-player-section" aria-label="RSVP reader">
+        <div class="text-player" id="text-player">
+          <div class="reader-article-header" id="reader-article-header" hidden>
+            <h2 class="reader-article-title" id="reader-article-title"></h2>
+            <p class="reader-article-source" id="reader-article-source"></p>
+          </div>
+          <div class="reader-controls reader-controls--top text-player-card">
+            <div class="config-bar">
+              <div class="config-stepper-item">
+                <span class="config-label">WPM</span>
+                <span id="wpm-value" class="config-value">300</span>
+                <div class="config-buttons">
+                  <button type="button" id="wpm-up" class="config-btn" aria-label="Increase speed">▲</button>
+                  <button type="button" id="wpm-down" class="config-btn" aria-label="Decrease speed">▼</button>
+                </div>
+                <input type="range" id="wpm-slider" class="config-slider-sr" min="100" max="900" step="50" value="300"
+                  aria-label="Speed (words per minute)" tabindex="-1" />
+              </div>
+              <div class="config-stepper-item">
+                <span class="config-label">Size</span>
+                <span id="font-size-value" class="config-value">Medium</span>
+                <div class="config-buttons">
+                  <button type="button" id="font-size-up" class="config-btn" aria-label="Larger font">▲</button>
+                  <button type="button" id="font-size-down" class="config-btn" aria-label="Smaller font">▼</button>
+                </div>
+                <select id="font-size-select" class="config-select-sr" aria-hidden="true" tabindex="-1">
+                  <option value="s">Small</option>
+                  <option value="m" selected>Medium</option>
+                  <option value="l">Large</option>
+                  <option value="xl">Extra large</option>
+                </select>
+              </div>
+              <div class="config-stepper-item">
+                <span class="config-label">Font</span>
+                <span id="font-type-value" class="config-value">Classic</span>
+                <div class="config-buttons">
+                  <button type="button" id="font-type-up" class="config-btn" aria-label="Next font">▲</button>
+                  <button type="button" id="font-type-down" class="config-btn" aria-label="Previous font">▼</button>
+                </div>
+                <select id="font-type-select" class="config-select-sr" aria-hidden="true" tabindex="-1">
+                  <option value="serif">Classic</option>
+                  <option value="sans">Clean</option>
+                  <option value="soft">Soft</option>
+                </select>
+              </div>
+              <div class="config-stepper-item">
+                <span class="config-label">Theme</span>
+                <span id="theme-value" class="config-value">Light</span>
+                <div class="config-buttons">
+                  <button type="button" id="theme-up" class="config-btn" aria-label="Next theme">▲</button>
+                  <button type="button" id="theme-down" class="config-btn" aria-label="Previous theme">▼</button>
+                </div>
+                <select id="theme-select" class="config-select-sr" aria-hidden="true" tabindex="-1">
+                  <option value="dark">Dark</option>
+                  <option value="dark-soft">Dark Soft</option>
+                  <option value="dark-midnight">Midnight</option>
+                  <option value="dark-warm">Dark Warm</option>
+                  <option value="light" selected>Light</option>
+                  <option value="light-soft">Light Soft</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="reader-frame text-player-card text-player-display">
+            <div class="reader-lines reader-lines--top" aria-hidden="true"></div>
+            <div id="word-container" class="word-container reader-font-m reader-type-serif">
+              <span id="word-display" class="word-display"></span>
+            </div>
+            <div class="reader-lines reader-lines--bottom" aria-hidden="true"></div>
+          </div>
+
+          <div class="player-bar text-player-card">
+            <div class="player-seek">
+              <input type="range" id="seek-slider" class="player-seek-slider" min="0" max="1" value="0" step="1"
+                aria-label="Word position" />
+            </div>
+            <p id="progress-text" class="player-progress">Word 0 of 0</p>
+            <div class="player-controls">
+              <button type="button" id="btn-back" class="btn btn-icon btn-player" aria-label="Back" title="Back">
+                <span class="btn-icon-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                </span>
+              </button>
+              <button type="button" id="btn-prev" class="btn btn-icon btn-player" aria-label="5 words back">
+                <span class="btn-icon-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8 L 12 12 L 18 16" />
+                    <path d="M11 8 L 5 12 L 11 16" />
+                  </svg>
+                </span>
+              </button>
+              <button type="button" id="btn-pause" class="btn btn-icon btn-player btn-player--main"
+                aria-label="Play/Pause">
+                <span id="btn-pause-icon" class="btn-icon-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    stroke="currentColor" stroke-width="2">
+                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                  </svg>
+                </span>
+              </button>
+              <button type="button" id="btn-next" class="btn btn-icon btn-player" aria-label="5 words forward">
+                <span class="btn-icon-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 8 L 12 12 L 6 16" />
+                    <path d="M13 8 L 19 12 L 13 16" />
+                  </svg>
+                </span>
+              </button>
+              <button type="button" id="btn-restart" class="btn btn-icon btn-player"
+                aria-label="Restart from beginning">
+                <span class="btn-icon-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                    <path d="M3 3v5h5" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section id="how-it-works" class="section-info">
+      <div class="section-inner">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">Three steps to read up to 3× faster</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3 class="step-title">Add your content</h3>
+            <p class="step-desc">Paste an article URL or copy-paste any text — news, research, books, notes.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3 class="step-title">Set your speed</h3>
+            <p class="step-desc">Start at 200–300 WPM. Most people read 200 WPM. Push gradually to 500+ with practice.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3 class="step-title">Focus and read</h3>
+            <p class="step-desc">Words appear one at a time at the fixation point. Your eyes stay still — your brain
+              does the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-info section-info--alt">
+      <div class="section-inner section-inner--narrow">
+        <h2 class="section-title">About FastReading</h2>
+        <p class="section-body">
+          FastReading is a free, no-login RSVP (Rapid Serial Visual Presentation) speed reading tool. RSVP presents text
+          word-by-word at a fixed focal point, eliminating the saccadic eye movements that slow traditional reading by
+          up to 30%.
+        </p>
+        <p class="section-body">
+          Whether you're clearing a reading backlog, studying for exams, or just trying to consume more information —
+          FastReading helps you read smarter, not just faster.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="footer-brand">FastReading</span>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <span class="footer-text">Free RSVP speed reader · No sign-up required</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/text-player.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var tabUrl = document.getElementById('tab-url');
+      var tabText = document.getElementById('tab-text');
+      var panelUrl = document.getElementById('panel-url');
+      var panelText = document.getElementById('panel-text');
+      var urlInput = document.getElementById('url-input');
+      var textInput = document.getElementById('text-input');
+
+      function activateTab(active, inactive, show, hide) {
+        active.classList.add('input-tab--active');
+        active.setAttribute('aria-selected', 'true');
+        inactive.classList.remove('input-tab--active');
+        inactive.setAttribute('aria-selected', 'false');
+        show.classList.remove('input-panel--hidden');
+        hide.classList.add('input-panel--hidden');
+      }
+
+      tabUrl.addEventListener('click', function () {
+        activateTab(tabUrl, tabText, panelUrl, panelText);
+        textInput.value = '';
+        urlInput.focus();
+      });
+
+      tabText.addEventListener('click', function () {
+        activateTab(tabText, tabUrl, panelText, panelUrl);
+        urlInput.value = '';
+        textInput.focus();
+      });
+    })();
+  </script>
+</body>
+
+</html>
