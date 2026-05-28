@@ -4,10 +4,10 @@
  */
 (function () {
   const DEMO_STORY = (
-    'Pagi itu embun masih melekat di jendela. Ibu menyiapkan teh hangat dan roti panggang. ' +
-    'Kucing tua kami berbaring di bawah sinar matahari, ekornya bergoyang pelan. ' +
-    'Aku ingat bagaimana nenek selalu bilang: rumah bukan tentang tembok, tapi tentang orang-orang yang menunggu. ' +
-    'Sekarang aku mengerti. Kehangatan itu ada di sini, di meja kecil kita, dalam senyum yang tak perlu kata-kata.'
+    'The room was warm and clean, the curtains drawn, the two table lamps alight. ' +
+    'Mary Maloney was waiting for her husband to come home from work. ' +
+    'She loved the warmth that came out of him when they were alone together. ' +
+    'She loved him. She was happy. And she was content.'
   ).split(/\s+/).filter(Boolean);
 
   function escapeHtml(s) {

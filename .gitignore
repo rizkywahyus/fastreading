@@ -1,3 +1,6 @@
 .claude/
 catatan.md
 node_modules/
+.agents
+skills-lock.json
+PRODUCT.md
