@@ -42,7 +42,7 @@
     <main class="main home-layout" id="main-content">
       <section class="hero" id="hero-section" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <h1 id="hero-title" class="hero-title">Read faster.<br>Think clearer.</h1>
+          <h1 id="hero-title" class="hero-title">Read faster.<br><span class="hero-title-accent">Think clearer.</span></h1>
           <p class="hero-desc">
             RSVP flashes words one at a fixed focal point, eliminating eye movement and tripling reading speed.
             Paste any article or text and go.
@@ -130,7 +130,9 @@
           <div class="reader-controls reader-controls--top text-player-card">
             <div class="config-bar">
               <div class="config-stepper-item">
-                <span class="config-label">WPM</span>
+                <span class="config-label" title="Reading speed (WPM)" aria-label="Reading speed (WPM)">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="config-icon"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
+                </span>
                 <span id="wpm-value" class="config-value">300</span>
                 <div class="config-buttons">
                   <button type="button" id="wpm-up" class="config-btn" aria-label="Increase speed">▲</button>
@@ -140,7 +142,9 @@
                   aria-label="Speed (words per minute)" tabindex="-1" />
               </div>
               <div class="config-stepper-item">
-                <span class="config-label">Size</span>
+                <span class="config-label" title="Font size" aria-label="Font size">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="config-icon"><path d="M4 7V4h16v3M9 20h6M12 4v16" /></svg>
+                </span>
                 <span id="font-size-value" class="config-value">Medium</span>
                 <div class="config-buttons">
                   <button type="button" id="font-size-up" class="config-btn" aria-label="Larger font">▲</button>
@@ -154,7 +158,9 @@
                 </select>
               </div>
               <div class="config-stepper-item">
-                <span class="config-label">Font</span>
+                <span class="config-label" title="Font style" aria-label="Font style">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="config-icon"><path d="M5 15h6" /><path d="M19 13v6" /><path d="m3 19 5-10 5 10" /><path d="M15 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg>
+                </span>
                 <span id="font-type-value" class="config-value">Classic</span>
                 <div class="config-buttons">
                   <button type="button" id="font-type-up" class="config-btn" aria-label="Next font">▲</button>
@@ -167,7 +173,9 @@
                 </select>
               </div>
               <div class="config-stepper-item">
-                <span class="config-label">Theme</span>
+                <span class="config-label" title="Color theme" aria-label="Color theme">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="config-icon"><circle cx="12" cy="12" r="10" /><path d="M12 2a10 10 0 0 0 0 20V2Z" fill="currentColor"/></svg>
+                </span>
                 <span id="theme-value" class="config-value">Light</span>
                 <div class="config-buttons">
                   <button type="button" id="theme-up" class="config-btn" aria-label="Next theme">▲</button>
