@@ -178,11 +178,18 @@
     fileInput.addEventListener('change', () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
+      if (file.type && file.type !== 'text/plain' && !file.name.endsWith('.txt')) {
+        showError('Hanya file .txt yang didukung.');
+        fileInput.value = '';
+        return;
+      }
       const reader = new FileReader();
       reader.onload = () => {
         const text = (reader.result || '').trim();
         if (textInput) textInput.value = text;
         fileInput.value = '';
+        const tabText = document.getElementById('tab-text');
+        if (tabText) tabText.click();
       };
       reader.readAsText(file, 'UTF-8');
     });
