@@ -151,7 +151,7 @@
       this.pulseAngle = Math.random() * Math.PI * 2;
     }
 
-    update(styles) {
+    update(_styles) {
       // 1. Quantum breathing offset (simultaneous gentle drifting)
       this.angleX += this.speedX;
       this.angleY += this.speedY;
