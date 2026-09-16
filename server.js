@@ -61,9 +61,14 @@ app.get('/read', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Only listen when started directly, so tests can import `app`.
+// Only listen when started directly, so tests and the serverless entrypoint
+// can import `app` without binding a port.
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   app.listen(PORT, () => {
     console.log(`FastReading (fastreading.pro) running at http://localhost:${PORT}`);
   });
 }
+
+// Vercel may treat this file as the function entrypoint via package.json
+// "main", and a serverless handler has to be the default export.
+export default app;

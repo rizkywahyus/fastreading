@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test, { after, before } from 'node:test';
-import { app } from '../server.js';
+import app, { app as namedApp } from '../server.js';
 import { MESSAGES } from '../lib/article.js';
 
 let server;
@@ -54,4 +54,13 @@ test('GET /read serves the app shell', async () => {
   const res = await fetch(`${base}/read`);
   assert.equal(res.status, 200);
   assert.match(await res.text(), /<html/i);
+});
+
+test('the app is exported as both a default and a named binding', async () => {
+  // Vercel resolves the serverless handler from the default export.
+  assert.equal(typeof app, 'function');
+  assert.equal(app, namedApp);
+
+  const entrypoint = await import('../api/[...path].js');
+  assert.equal(entrypoint.default, app);
 });
