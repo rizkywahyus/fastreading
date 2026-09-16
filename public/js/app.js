@@ -17,15 +17,15 @@
   const articleSource = document.getElementById('reader-article-source');
 
   function setReaderHeader(title, source) {
-    const t = title || 'Teks yang Anda tempel';
+    const t = title || 'Your pasted text';
     if (readerTitle) readerTitle.textContent = t;
     if (readerSource) {
-      readerSource.textContent = source ? 'Sumber: ' + source : '';
+      readerSource.textContent = source ? 'Source: ' + source : '';
       readerSource.hidden = !source;
     }
     if (articleTitle) articleTitle.textContent = t;
     if (articleSource) {
-      articleSource.textContent = source ? 'Sumber: ' + source : '';
+      articleSource.textContent = source ? 'Source: ' + source : '';
       articleSource.hidden = !source;
     }
     if (articleHeader) articleHeader.hidden = false;
@@ -110,7 +110,7 @@
 
   function handlePasteWords(wordList, title, source) {
     if (!window.TextPlayer) return;
-    setReaderHeader(title || 'Teks yang Anda tempel', source);
+    setReaderHeader(title || 'Your pasted text', source);
     TextPlayer.setWords(wordList, false);
     switchToReaderLayout();
   }
@@ -132,22 +132,22 @@
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {
-          showError(data.error || 'Gagal mengekstrak artikel.');
+          showError(data.error || 'Could not extract the article.');
           return;
         }
 
         const text = (data.text || '').trim();
         if (!text) {
-          showError('Tidak ada teks yang bisa diekstrak dari URL ini.');
+          showError('No text could be extracted from this URL.');
           return;
         }
 
         const wordList = text.split(/\s+/).filter(Boolean);
-        const articleTitle = (data.title || '').trim() || 'Tanpa judul';
+        const articleTitle = (data.title || '').trim() || 'Untitled';
         const source = getDomainFromUrl(url);
         handlePasteWords(wordList, articleTitle, source);
-      } catch (err) {
-        showError('Koneksi gagal. Periksa jaringan dan coba lagi.');
+      } catch {
+        showError('Connection failed. Check your network and try again.');
       } finally {
         setLoading(false);
       }
@@ -157,14 +157,14 @@
     if (rawText) {
       const wordList = rawText.split(/\s+/).filter(Boolean);
       if (wordList.length === 0) {
-        showError('Tidak ada kata yang bisa dibaca.');
+        showError('There are no words to read.');
         return;
       }
-      handlePasteWords(wordList, 'Teks yang Anda tempel', null);
+      handlePasteWords(wordList, 'Your pasted text', null);
       return;
     }
 
-    showError('Masukkan link atau tempel teks, lalu klik let\'s go!.');
+    showError("Enter a link or paste text, then click let's go!");
   });
 
   if (browseBtn) {
@@ -179,7 +179,7 @@
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
       if (file.type && file.type !== 'text/plain' && !file.name.endsWith('.txt')) {
-        showError('Hanya file .txt yang didukung.');
+        showError('Only .txt files are supported.');
         fileInput.value = '';
         return;
       }

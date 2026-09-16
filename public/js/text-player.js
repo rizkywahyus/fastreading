@@ -77,7 +77,7 @@
   function setPauseButtonIcon(paused) {
     if (!btnPauseIcon) return;
     btnPauseIcon.innerHTML = paused ? iconPlay : iconPause;
-    if (btnPause) btnPause.setAttribute('aria-label', paused ? 'Lanjut' : 'Jeda');
+    if (btnPause) btnPause.setAttribute('aria-label', paused ? 'Resume' : 'Pause');
   }
 
   function updateWpmLabel(wpm) {
@@ -151,7 +151,7 @@
 
   function applyTheme(themeId) {
     document.body.dataset.theme = themeId;
-    try { localStorage.setItem('fastreading-theme', themeId); } catch (_) {}
+    try { localStorage.setItem('fastreading-theme', themeId); } catch {}
     syncThemeDisplay();
   }
 
