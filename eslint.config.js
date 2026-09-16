@@ -6,7 +6,7 @@ export default [
   },
   {
     // Server-side ES modules.
-    files: ['server.js', 'lib/**/*.js', 'test/**/*.js', 'eslint.config.js'],
+    files: ['server.js', 'api/**/*.js', 'lib/**/*.js', 'test/**/*.js', 'eslint.config.js'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',
